@@ -1,0 +1,97 @@
+/* ─── Assembly container ──────────────────────────────────────────────── */
+.assembly-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+/* ─── Stage (fixed-size design canvas, scaled uniformly) ─────────────── */
+.assembly-stage {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  flex-shrink: 0;
+  transform-origin: bottom center;
+}
+
+/* ─── Floor shadow ────────────────────────────────────────────────────── */
+.assembly-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 400px;
+  height: 32px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.10);
+  filter: blur(20px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── Individual accessory block ──────────────────────────────────────── */
+.assembly-attachment {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.assembly-attachment img {
+  display: block;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.10));
+}
+
+/* ─── Hover label ─────────────────────────────────────────────────────── */
+.assembly-label {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: #c8102e;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Re‑enable pointer events on the attachment so hover works */
+.assembly-attachment {
+  pointer-events: auto;
+}
+
+.assembly-attachment:hover .assembly-label {
+  opacity: 1;
+}
+
+/* ─── Base printer block ──────────────────────────────────────────────── */
+.assembly-base {
+  position: absolute;
+  left: 50%;
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: bottom center;
+}
+
+.assembly-base img {
+  display: block;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.14));
+}

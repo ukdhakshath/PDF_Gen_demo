@@ -1,0 +1,32 @@
+/* App.css — component-specific overrides only.
+   All global design tokens and base component styles live in index.css. */
+
+/* Capture button shown when downloading PDF (inside assembly panel) */
+.capture-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: 1.5px solid var(--red);
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.capture-btn:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+/* Empty quotation state */
+.summary-empty {
+  padding: 24px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
